@@ -7,6 +7,7 @@
 using namespace std;
 char number[9];
 int i=0;
+int nich();
 int winx();
 int wino();
 int main();
@@ -18,22 +19,22 @@ int game(){
 	cout<<"                          "<< number[4] << "|" << number[5] << "|" << number[6]<<endl;
 	cout<<"                          "<< "-----" <<endl;
 	cout<<"                          "<< number[7] << "|" << number[8] << "|" << number[9]<<endl;
-	Sleep(1000);
 	winner();
 };
 int main(){
+	setlocale(LC_ALL,"Rus");
 	int kv;
-	cout<<"Napishite nomer pozicii, kuda vi hotite postavit:";
+	cout<<"Íàïèøèòå íîðìåð ïîçèöèè, êóäà âû õîòèòå ïîñòàâèòü -";
 	if(i%2==0){
-		cout<<" krestik"<<endl;
+		cout<<" êðåñòèê"<<endl;
 	}
 	else{
-		cout<<" nolik"<<endl;
+		cout<<" íîëèê"<<endl;
 	};
 	cin>>kv;
 	if(number[kv]!='\0' or kv>9){
 		system("cls");
-		cout<<"Eta  poziciya zanyata ili ee ne sushestvuet, viberi druguy"<<endl;
+		cout<<"Ýòîé  ïîçèöèè íå ñóùåñòâóåò èëè  óæå çàíÿòà, ïîïðîáóé åùå ðàç"<<endl;
 		Sleep(3000);
 		game();
 	}
@@ -97,13 +98,16 @@ int winner(){
 	}
 	else if((number[3]=='o')&&(number[5]=='o')&&(number[7]=='o')){
 		wino();
-	}else{
+	}
+	else if(i==9){
+		nich();
+	}
+	else{
 		main();
 	}
 }
 int winx(){
 		system("cls");
-		setlocale(LC_ALL,"Rus");
 		cout<<"ã¬ã==¬ã===¬ã===¬ã==¬ã====¬ã==¬ã==¬"<<endl;
 		cout<<"¦¦¦ã=-¦ã=¬¦¦ã==-¦ã=-L=¬ã=-L¬ã-¦ã=-"<<endl;
 		cout<<"¦L-¦--¦L=-¦¦L==¬¦L=¬--¦¦---¦¦-¦¦"<<endl;
@@ -116,7 +120,7 @@ int winx(){
 		cout<<"¦ã==-¦¦¦¦¦ã=¬¦¦ã==-¦¦-¦¦-¦¦-¦¦"<<endl;
 		cout<<"¦¦---¦L-¦¦L=-¦¦L==¬¦L=-¦ã-L¬¦L=¬"<<endl;
 		cout<<"L----L==-L===-L===-L===-L==-L==-"<<endl<<endl;
-		cout<<"esli hochesh poigrat eshe najmi 'y'"<<endl;
+		cout<<"Åñëè õî÷åøü ïîèãðàòü åùå íàæìè - 'y'"<<endl;
 		char rest;
 		cin>>rest;
 		if(rest=='y'){
@@ -125,13 +129,12 @@ int winx(){
 			game();
 		}
 		else{
-			cout<<"                Poka Poka, budu jdat eshe";
+			cout<<"                Ïîêà-Ïîêà, áóäó æäàòü åùå";
 			
 		};
 }
 int wino(){
 		system("cls");
-		setlocale(LC_ALL,"Rus");
 		cout<<"ã¬-ã¬ã==¬ã¬--ã==¬ã¬ã==¬"<<endl;
 		cout<<"¦L=-¦¦ã¬¦¦¦--L¬ã-¦¦¦ã=-"<<endl;
 		cout<<"¦ã¬-¦¦¦¦¦¦¦---¦¦-¦L-¦"<<endl;
@@ -144,7 +147,7 @@ int wino(){
 		cout<<"¦ã==-¦¦¦¦¦ã=¬¦¦ã==-¦¦-¦¦-¦¦-¦¦"<<endl;
 		cout<<"¦¦---¦L-¦¦L=-¦¦L==¬¦L=-¦ã-L¬¦L=¬"<<endl;
 		cout<<"L----L==-L===-L===-L===-L==-L==-"<<endl<<endl;
-		cout<<"esli hochesh poigrat eshe najmi 'y'"<<endl;
+		cout<<"Åñëè õî÷åøü ïîèãðàòü åùå íàæìè - 'y'"<<endl;
 		char rest;
 		cin>>rest;
 		if(rest=='y'){
@@ -153,7 +156,24 @@ int wino(){
 			game();
 		}
 		else{
-			cout<<"                Poka Poka, budu jdat eshe";
+			cout<<"                Ïîêà-Ïîêà, áóäó æäàòü åùå";
 			
 		};
 }
+int nich(){
+		system("cls");
+		cout<<"êàê-òî ïîëó÷èëàñü íè÷üÿ)"<<endl;
+		cout<<"Åñëè õî÷åøü ïîèãðàòü åùå íàæìè - 'y'"<<endl;
+		char rest;
+		cin>>rest;
+		if(rest=='y'){
+			memset(number, 0, sizeof(char)*10);
+			i=0;
+			game();
+		}
+		else{
+			cout<<"                Ïîêà-Ïîêà, áóäó æäàòü åùå";
+			
+		};
+}
+
