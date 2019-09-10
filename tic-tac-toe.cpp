@@ -12,19 +12,26 @@ int main();
 int winner();
 int game(){
 	system("cls");
-	cout<< number[1] << "|" << number[2] << "|" << number[3]<<endl;
-	cout<< "-----" <<endl;
-	cout<< number[4] << "|" << number[5] << "|" << number[6]<<endl;
-	cout<< "-----" <<endl;
-	cout<< number[7] << "|" << number[8] << "|" << number[9]<<endl;
+	cout<<"                          "<< number[1] << "|" << number[2] << "|" << number[3]<<endl;
+	cout<<"                          "<< "-----" <<endl;
+	cout<<"                          "<< number[4] << "|" << number[5] << "|" << number[6]<<endl;
+	cout<<"                          "<< "-----" <<endl;
+	cout<<"                          "<< number[7] << "|" << number[8] << "|" << number[9]<<endl;
 	winner();
 };
 int main(){
 	int kv;
+	cout<<"Napishite nomer pozicii, kuda vi hotite postavit:";
+	if(i%2==0){
+		cout<<" krestik"<<endl;
+	}
+	else{
+		cout<<" nolik"<<endl;
+	};
 	cin>>kv;
 	if(number[kv]!='\0' or kv>9){
 		system("cls");
-		cout<<"Eta  poziciya zanyata, viberi druguy"<<endl;
+		cout<<"Eta  poziciya zanyata ili ee ne sushestvuet, viberi druguy"<<endl;
 		Sleep(3000);
 		game();
 	}
