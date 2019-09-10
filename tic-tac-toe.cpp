@@ -3,6 +3,7 @@
 #include <windows.h>
 #include <string>
 #include <conio.h>
+#include <string.h>
 using namespace std;
 char number[9];
 int i=0;
@@ -17,6 +18,7 @@ int game(){
 	cout<<"                          "<< number[4] << "|" << number[5] << "|" << number[6]<<endl;
 	cout<<"                          "<< "-----" <<endl;
 	cout<<"                          "<< number[7] << "|" << number[8] << "|" << number[9]<<endl;
+	Sleep(1000);
 	winner();
 };
 int main(){
@@ -113,7 +115,19 @@ int winx(){
 		cout<<"¦L=-¦¦¦¦¦¦L-L¬¦L==¬¦¦L¬¦-¦¦-¦¦"<<endl;
 		cout<<"¦ã==-¦¦¦¦¦ã=¬¦¦ã==-¦¦-¦¦-¦¦-¦¦"<<endl;
 		cout<<"¦¦---¦L-¦¦L=-¦¦L==¬¦L=-¦ã-L¬¦L=¬"<<endl;
-		cout<<"L----L==-L===-L===-L===-L==-L==-"<<endl;
+		cout<<"L----L==-L===-L===-L===-L==-L==-"<<endl<<endl;
+		cout<<"esli hochesh poigrat eshe najmi 'y'"<<endl;
+		char rest;
+		cin>>rest;
+		if(rest=='y'){
+			memset(number, 0, sizeof(char)*10);
+			i=0;
+			game();
+		}
+		else{
+			cout<<"                Poka Poka, budu jdat eshe";
+			
+		};
 }
 int wino(){
 		system("cls");
@@ -129,5 +143,17 @@ int wino(){
 		cout<<"¦L=-¦¦¦¦¦¦L-L¬¦L==¬¦¦L¬¦-¦¦-¦¦"<<endl;
 		cout<<"¦ã==-¦¦¦¦¦ã=¬¦¦ã==-¦¦-¦¦-¦¦-¦¦"<<endl;
 		cout<<"¦¦---¦L-¦¦L=-¦¦L==¬¦L=-¦ã-L¬¦L=¬"<<endl;
-		cout<<"L----L==-L===-L===-L===-L==-L==-"<<endl;
+		cout<<"L----L==-L===-L===-L===-L==-L==-"<<endl<<endl;
+		cout<<"esli hochesh poigrat eshe najmi 'y'"<<endl;
+		char rest;
+		cin>>rest;
+		if(rest=='y'){
+			memset(number, 0, sizeof(char)*10);
+			i=0;
+			game();
+		}
+		else{
+			cout<<"                Poka Poka, budu jdat eshe";
+			
+		};
 }
