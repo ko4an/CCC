@@ -3,26 +3,33 @@
 #include <windows.h>
 #include <string>
 #include <conio.h>
-#include <string.h>
+#include <stack>
+#include <map>
 using namespace std;
 char number[9];
 int i=0;
-int nich();
-int winx();
-int wino();
-int main();
-int winner();
+string first;
+string second;
+int fpoint=0;
+int spoint=0;
+int nich(),winx(),wino(),main(),winner(),game();
 int game(){
 	system("cls");
-	cout<<"                          "<< number[1] << "|" << number[2] << "|" << number[3]<<endl;
-	cout<<"                          "<< "-----" <<endl;
+	cout<<"                          "<< number[1] << "|" << number[2] << "|" << number[3]<<"                          "<<first<<"    "<<second<<endl;
+	cout<<"                          "<< "-----" <<"                          "<<fpoint<<"            "<<spoint<<endl;
 	cout<<"                          "<< number[4] << "|" << number[5] << "|" << number[6]<<endl;
 	cout<<"                          "<< "-----" <<endl;
 	cout<<"                          "<< number[7] << "|" << number[8] << "|" << number[9]<<endl;
 	winner();
 };
 int main(){
-	setlocale(LC_ALL,"Rus");
+	system("chcp 1251 >> null");
+	if(first.empty()){
+		cout<<"введите имя первого игрока"<<endl;
+		cin>>first;
+		cout<<"введите имя второго игрока"<<endl;
+		cin>>second;
+	}
 	int kv;
 	cout<<"Напишите нормер позиции, куда вы хотите поставить -";
 	if(i%2==0){
@@ -121,6 +128,7 @@ int winx(){
 		cout<<"¦¦---¦L-¦¦L=-¦¦L==¬¦L=-¦г-L¬¦L=¬"<<endl;
 		cout<<"L----L==-L===-L===-L===-L==-L==-"<<endl<<endl;
 		cout<<"Если хочешь поиграть еще нажми - 'y'"<<endl;
+		fpoint=fpoint+1;
 		char rest;
 		cin>>rest;
 		if(rest=='y'){
@@ -148,6 +156,7 @@ int wino(){
 		cout<<"¦¦---¦L-¦¦L=-¦¦L==¬¦L=-¦г-L¬¦L=¬"<<endl;
 		cout<<"L----L==-L===-L===-L===-L==-L==-"<<endl<<endl;
 		cout<<"Если хочешь поиграть еще нажми - 'y'"<<endl;
+		spoint=spoint+1;		
 		char rest;
 		cin>>rest;
 		if(rest=='y'){
