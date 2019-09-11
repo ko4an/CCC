@@ -5,21 +5,24 @@
 #include <conio.h>
 #include <stack>
 #include <map>
+#include <time.h>
 using namespace std;
 char number[9];
-int i=0;
 string first;
 string second;
 int fpoint=0;
 int spoint=0;
-int nich(),winx(),wino(),main(),winner(),game();
+int i,n,f=0;
+char sele;
+int nich(),winx(),wino(),main(),winner(),game(),vibor();
 int game(){
 	system("cls");
-	cout<<"                          "<< number[1] << "|" << number[2] << "|" << number[3]<<"                          "<<first<<"    "<<second<<endl;
-	cout<<"                          "<< "-----" <<"                          "<<fpoint<<"            "<<spoint<<endl;
+	cout<<"                          "<< number[1] << "|" << number[2] << "|" << number[3]<<endl;
+	cout<<"                          "<< "-----" <<endl;
 	cout<<"                          "<< number[4] << "|" << number[5] << "|" << number[6]<<endl;
 	cout<<"                          "<< "-----" <<endl;
-	cout<<"                          "<< number[7] << "|" << number[8] << "|" << number[9]<<endl;
+	cout<<"                          "<< number[7] << "|" << number[8] << "|" << number[9]<<endl<<endl;
+	cout<<"        Ñ×ÅÒ    "<<first<<" - "<<fpoint<<"  :  "<<second<<" - "<<spoint<<endl<<endl;
 	winner();
 };
 int main(){
@@ -29,6 +32,9 @@ int main(){
 		cin>>first;
 		cout<<"ââåäèòå èìÿ âòîðîãî èãðîêà"<<endl;
 		cin>>second;
+	}
+	if(i==0){
+		vibor();
 	}
 	int kv;
 	cout<<"Íàïèøèòå íîðìåð ïîçèöèè, êóäà âû õîòèòå ïîñòàâèòü -";
@@ -47,12 +53,13 @@ int main(){
 	}
 	else if(i%2==0){
 		number[kv]='x';
-		
+		n++;
 		i++;
 		game();
 	}
 	else{
 		number[kv]='o';
+		n++;
 		i++;
 		game();
 	};
@@ -106,7 +113,7 @@ int winner(){
 	else if((number[3]=='o')&&(number[5]=='o')&&(number[7]=='o')){
 		wino();
 	}
-	else if(i==9){
+	else if(n==9){
 		nich();
 	}
 	else{
@@ -115,25 +122,20 @@ int winner(){
 }
 int winx(){
 		system("cls");
-		cout<<"ã¬ã==¬ã===¬ã===¬ã==¬ã====¬ã==¬ã==¬"<<endl;
-		cout<<"¦¦¦ã=-¦ã=¬¦¦ã==-¦ã=-L=¬ã=-L¬ã-¦ã=-"<<endl;
-		cout<<"¦L-¦--¦L=-¦¦L==¬¦L=¬--¦¦---¦¦-¦¦"<<endl;
-		cout<<"¦ã¬¦--¦ã¬ã-¦ã==-L=¬¦--¦¦---¦¦-¦¦"<<endl;
-		cout<<"¦¦¦L=¬¦¦¦¦-¦L==¬ã=-¦--¦¦--ã-L¬¦L=¬"<<endl;
-		cout<<"L-L==-L-L--L===-L==---L---L==-L==-"<<endl;
-		cout<<"ã===¬ã==¬ã==¬-ã===¬ã==¬-ã==¬ã¬"<<endl;
-		cout<<"¦ã=¬¦¦ã¬¦¦ã¬¦-¦ã==-¦ã¬L¬L¬ã-¦¦"<<endl;
-		cout<<"¦L=-¦¦¦¦¦¦L-L¬¦L==¬¦¦L¬¦-¦¦-¦¦"<<endl;
-		cout<<"¦ã==-¦¦¦¦¦ã=¬¦¦ã==-¦¦-¦¦-¦¦-¦¦"<<endl;
-		cout<<"¦¦---¦L-¦¦L=-¦¦L==¬¦L=-¦ã-L¬¦L=¬"<<endl;
-		cout<<"L----L==-L===-L===-L===-L==-L==-"<<endl<<endl;
+		if(f==0 and sele=='x'){
+			fpoint=fpoint+1;
+			cout<<"Èãðîê "<<first<<" ïîáåäèë èãðàÿ çà Êðåñòèê"<<endl<<endl;
+		}else if(f==1 and sele=='x'){
+			spoint=spoint+1;
+			cout<<"Èãðîê "<<second<<" ïîáåäèë èãðàÿ çà Êðåñòèê"<<endl<<endl;
+		}
 		cout<<"Åñëè õî÷åøü ïîèãðàòü åùå íàæìè - 'y'"<<endl;
-		fpoint=fpoint+1;
 		char rest;
 		cin>>rest;
 		if(rest=='y'){
 			memset(number, 0, sizeof(char)*10);
 			i=0;
+			n=0;
 			game();
 		}
 		else{
@@ -143,25 +145,20 @@ int winx(){
 }
 int wino(){
 		system("cls");
-		cout<<"ã¬-ã¬ã==¬ã¬--ã==¬ã¬ã==¬"<<endl;
-		cout<<"¦L=-¦¦ã¬¦¦¦--L¬ã-¦¦¦ã=-"<<endl;
-		cout<<"¦ã¬-¦¦¦¦¦¦¦---¦¦-¦L-¦"<<endl;
-		cout<<"¦¦L¬¦¦¦¦¦¦¦---¦¦-¦ã¬¦"<<endl;
-		cout<<"¦¦-¦¦¦L-¦¦L=¬ã-L¬¦¦¦L=¬"<<endl;
-		cout<<"L--L-L==-L==-L==-L-L==-"<<endl;
-		cout<<"ã===¬ã==¬ã==¬-ã===¬ã==¬-ã==¬ã¬"<<endl;
-		cout<<"¦ã=¬¦¦ã¬¦¦ã¬¦-¦ã==-¦ã¬L¬L¬ã-¦¦"<<endl;
-		cout<<"¦L=-¦¦¦¦¦¦L-L¬¦L==¬¦¦L¬¦-¦¦-¦¦"<<endl;
-		cout<<"¦ã==-¦¦¦¦¦ã=¬¦¦ã==-¦¦-¦¦-¦¦-¦¦"<<endl;
-		cout<<"¦¦---¦L-¦¦L=-¦¦L==¬¦L=-¦ã-L¬¦L=¬"<<endl;
-		cout<<"L----L==-L===-L===-L===-L==-L==-"<<endl<<endl;
+		if(f==0 and sele=='o'){
+			fpoint=fpoint+1;
+			cout<<"Èãðîê "<<first<<" ïîáåäèë èãðàÿ çà Íîëèê"<<endl<<endl;
+		}else if(f==1 and sele=='o'){
+			spoint=spoint+1;
+			cout<<"Èãðîê "<<second<<" ïîáåäèë èãðàÿ çà Íîëèê"<<endl<<endl;
+		}
 		cout<<"Åñëè õî÷åøü ïîèãðàòü åùå íàæìè - 'y'"<<endl;
-		spoint=spoint+1;		
 		char rest;
 		cin>>rest;
 		if(rest=='y'){
 			memset(number, 0, sizeof(char)*10);
 			i=0;
+			n=0;
 			game();
 		}
 		else{
@@ -178,6 +175,7 @@ int nich(){
 		if(rest=='y'){
 			memset(number, 0, sizeof(char)*10);
 			i=0;
+			n=0;
 			game();
 		}
 		else{
@@ -185,4 +183,39 @@ int nich(){
 			
 		};
 }
-
+int	vibor(){
+		srand(time(0));
+		f=rand()%2;
+		if(f==0){
+			cout<<"èãðîê - "<<first<<", ïîëó÷àåò âîçìîæíîñòü âûáðàòü êåì îí èãðàåò, íàïèøèòè 'x' èëè 'o'"<<endl;
+			cin>>sele;
+			if(sele=='x'){
+				i=2;
+				main();
+			}
+			else if(sele=='o'){
+				i=1;
+				main();
+			}
+			else{
+				cout<<"òû âûáðàë íåäîïóñòèìîå çíà÷åíèå"<<endl;
+				vibor();
+			}
+		}
+		else if(f==1){
+			cout<<"èãðîê - "<<second<<", ïîëó÷àåò âîçìîæíîñòü âûáðàòü êåì îí èãðàåò, íàïèøèòè 'x' èëè 'o'"<<endl;
+			cin>>sele;
+			if(sele=='x'){
+				i=2;
+				main();
+			}
+			else if(sele=='o'){
+				i=1;
+				main();
+			}
+			else{
+				cout<<"òû âûáðàë íåäîïóñòèìîå çíà÷åíèå"<<endl;
+				vibor();
+			}
+		}
+}
